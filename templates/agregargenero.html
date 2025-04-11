@@ -1,12 +1,59 @@
 {% extends 'principal.html' %}
 
 {% block content %}
+<style>
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #fdfdfd;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #555;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1px solid #ced4da;
+        padding: 10px 15px;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    }
+
+    .btn-success {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    #alert-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+</style>
+
 <div class="container">
     <h2>Agregar Género</h2>
     <form method="POST" action="/agregenero/" id="formGenero">
         <div class="form-group">
             <label for="formGroupExampleInput">Nombre del Género</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agregar Genero" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agregar Género" required>
         </div>
         <br>
         <button type="submit" class="btn btn-success">Guardar Género</button>

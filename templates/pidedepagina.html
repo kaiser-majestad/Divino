@@ -2,8 +2,52 @@
 
 {% block title %}
 Página Adicional
-{% endblock %} {%
-block content %}
-<h2>Esta es una Página Adicional</h2>
-<p>Este es el contenido de la página adicional.</p>
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Estilos generales */
+    .content-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilo para el título */
+    h2 {
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        font-weight: 600;
+    }
+
+    /* Estilo para el párrafo */
+    p {
+        color: #34495e;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Efectos de transición */
+    .content-container {
+        transition: all 0.3s ease;
+    }
+
+    /* Efecto al pasar el mouse (opcional) */
+    .content-container:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+</style>
+
+<div class="content-container">
+    <h2>Esta es una Página Adicional</h2>
+    <p>Este es el contenido de la página adicional.</p>
+</div>
 {% endblock %}

@@ -1,14 +1,88 @@
 {% extends 'principal.html' %}
-{% block content %}
-<h2>Lista de genero</h2>
-<h1>Editar Género</h1>
 
-<form method="POST">
+{% block content %}
+<style>
+  .container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #fefefe;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  h1, h2 {
+    text-align: center;
+    color: #343a40;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  label {
+    font-weight: 500;
+    color: #333;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="text"]:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    outline: none;
+  }
+
+  button {
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #218838;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="container">
+  <h2>Lista de Género</h2>
+  <h1>Editar Género</h1>
+
+  <form method="POST">
     <label for="nombre">Nombre del Género:</label>
     <input type="text" name="nombre" value="{{ genero.nombre }}" required>
     <button type="submit">Actualizar Género</button>
-</form>
+  </form>
 
-<br>
-<a href="{{ url_for('listGenero') }}">Volver a la lista de géneros</a>
+  <a href="{{ url_for('listGenero') }}">Volver a la lista de géneros</a>
+</div>
+
 {% endblock %}

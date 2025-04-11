@@ -1,31 +1,90 @@
 {% extends 'principal.html' %}
 
- {% block content %}
-<h2>Lista de genero</h2>
+{% block content %}
 
-<table class="table">
-  <thead class="thead-dark">
+<style>
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .table {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  thead {
+    background-color: #343a40;
+    color: white;
+  }
+
+  th, td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  td a {
+    margin: 0 5px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  td a[href*="edit"] {
+    background-color: #007bff;
+    color: white;
+  }
+
+  td a[href*="delete"] {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  td a:hover {
+    opacity: 0.85;
+  }
+
+  .text-center {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+  }
+</style>
+
+<h2>Lista de Géneros</h2>
+
+<table class="table table-hover">
+  <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nombre Genero</th>
+      <th scope="col">Nombre del Género</th>
       <th scope="col">Opciones</th>
     </tr>
   </thead>
   <tbody>
     {% for genero in generos %}
-    <tr>
-      <td>{{ loop.index }}</td>
-      <td>{{ genero.nombre }}</td>
-      <td>
-        <a href="{{ url_for('deleteGenero', id=genero.id) }}" onclick=" return confirm('¿Estás seguro de que quieres eliminar este género?');">Eliminar</a>
-        <a href="{{ url_for('editGenero', id=genero.id) }}">Editar</a>
-      </td>
-      </tr>
-      {% else %}
       <tr>
-        <td colspan="2" class="text-center">No hay géneros disponibles.</td>
+        <td>{{ loop.index }}</td>
+        <td>{{ genero.nombre }}</td>
+        <td>
+          <a href="{{ url_for('deleteGenero', id=genero.id) }}" onclick=" return confirm('¿Estás seguro de que quieres eliminar este género?');">Eliminar</a>
+          <a href="{{ url_for('editGenero', id=genero.id) }}">Editar</a>
+        </td>
       </tr>
-      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="3" class="text-center">No hay géneros disponibles.</td>
+      </tr>
+    {% endfor %}
   </tbody>
 </table>
+
 {% endblock %}

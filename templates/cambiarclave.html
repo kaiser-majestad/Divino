@@ -1,12 +1,70 @@
 {% extends 'principal.html' %}
+
 {% block content %}
+<style>
+  .container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #fefefe;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #343a40;
+  }
+
+  form label {
+    font-weight: 500;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease;
+    font-size: 15px;
+  }
+
+  input[type="password"]:focus {
+    border-color: #17a2b8;
+    box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #17a2b8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #138496;
+  }
+</style>
+
 <div class="container">
   <h2>Restablecer contraseña</h2>
-<form method="POST">
-  <label>Nueva contraseña:</label><br>
-  <input type="password" name="nueva" required><br><br>
-  <button type="submit">Guardar</button>
-</form>
+  <form method="POST">
+    <label for="nueva">Nueva contraseña:</label>
+    <input type="password" id="nueva" name="nueva" required>
+    <button type="submit">Guardar</button>
+  </form>
 </div>
 
 {% endblock %}

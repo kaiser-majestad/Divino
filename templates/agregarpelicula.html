@@ -1,5 +1,74 @@
 {% extends 'principal.html' %}
+
 {% block content %}
+<style>
+    form {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #fdfdfd;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    button[type="submit"],
+    button[type="reset"] {
+        width: 48%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    button[type="submit"] {
+        background-color: #007bff;
+        border: none;
+    }
+
+    button[type="reset"] {
+        background-color: #dc3545;
+        border: none;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    button[type="reset"]:hover {
+        background-color: #c82333;
+    }
+
+    #alert-container {
+        max-width: 700px;
+        margin: 20px auto 0;
+        text-align: center;
+    }
+</style>
+
 <h2>Agregar Película</h2>
 <form id="formPelicula" method="POST" action="/agrepeliculas/">
   <div class="form-group">
@@ -23,7 +92,7 @@
     <textarea class="form-control" id="resumen" name="resumen" rows="3" required></textarea>
   </div>
   <div class="form-group">
-    <label for="foto">Foto</label>
+    <label for="foto">Foto (URL o Descripción)</label>
     <textarea class="form-control" id="foto" name="foto" rows="3" required></textarea>
   </div>
   <div class="form-group">
@@ -33,11 +102,12 @@
       {% for genero in generos %}
           <option value="{{ genero.id }}">{{ genero.nombre }}</option>
       {% endfor %}
-  </select>
-  
+    </select>
   </div>
-  <button type="submit" class="btn btn-primary">Guardar Película</button>
-  <button type="reset" class="btn btn-danger">Cancelar</button>
+  <div class="d-flex justify-content-between">
+    <button type="submit" class="btn btn-primary">Guardar Película</button>
+    <button type="reset" class="btn btn-danger">Cancelar</button>
+  </div>
 </form>
 
 <div id="alert-container" data-estado="{{ estado }}" data-mensaje="{{ mensaje }}"></div>
